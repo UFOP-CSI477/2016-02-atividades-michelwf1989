@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Calculo IMC</title>
+
+    <script type="text/javascript">
+
+      function calcularIMC() {
+
+        var peso = parseFloat(document.calc.peso.value);
+        var altura = parseFloat(document.calc.altura.value);
+
+        if (document.calc.peso.value.length == 0) {
+          window.alert("Informe o peso! ");
+          document.calc.peso.focus();
+          return;
+        } else if (document.calc.altura.value.length == 0) {
+          window.alert("Informe a altura! ");
+          document.calc.altura.focus();
+          return;
+        }
+
+      var imc = peso / Math.pow(altura,2);
+
+      if (imc < 18.5) {
+        document.calc.imc.value = ("Você está abaixo do peso!!! IMC: " + imc.toFixed(3));
+      } else if (imc >= 18.5 && imc < 24.9) {
+        document.calc.imc.value = ("Você está com peso normal!!! IMC: " + imc.toFixed(3));
+      } else if (imc >= 25 && imc < 29.9) {
+        //window.alert("Você está com sobrepeso com esse indice: " + imc.toFixed(3));
+        document.calc.imc.value = ("Você está com sobrepeso!!! IMC: " + imc.toFixed(3));
+      } else if (imc >= 30 && imc < 39.9) {
+        document.calc.imc.value = ("Você está obeso!!! IMC: " + imc.toFixed(3));
+      } else {
+        document.calc.imc.value = ("Você está com obesidade grave!!! IMC: " + imc.toFixed(3));
+      }
+
+    }
+
+    </script>
+
+  </head>
+  <body>
+
+    <form name="calc" action="#">
+
+      Peso: <input type="text" name="peso"><br>
+      Altura: <input type="text" name="altura"><br>
+      IMC: <input type="text" name="imc"><br>
+
+      <button type="button" onclick="calcularIMC()">Calcular IMC</button>
+
+    </form>
+
+  </body>
+</html>

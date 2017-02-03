@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cadastramento com Bootstrap</title>
+
+    <link rel="stylesheet" href="bootstrap.css">
+
+    <script type="text/javascript">
+
+      // Função para verificar todos os campos do Formulário antes do envio para confirmação.
+      function validaForm(frm) {
+
+        // Verificando o nome no formulário.
+        if (frm.nome.value == "" || frm.nome.value == null || frm.nome.value.lenght < 3) {
+          alert("Por favor, digite o seu nome!");
+          frm.nome.focus();
+          return false;
+        }
+
+        // Verificando a rua no formulário.
+        if (frm.rua.value == "" || frm.rua.value == null) {
+          alert("Por favor, insira o nome da rua!");
+          frm.rua.focus();
+          return false;
+        }
+
+        // Verificando o número no formulário.
+        if (frm.numero.value == "" || frm.numero.value == null) {
+          alert("Por favor, insira o número!");
+          frm.numero.focus();
+          return false;
+        }
+
+        // Verificando o CEP no formulário.
+        if (frm.cep.value == "" || frm.cep.value == null) {
+          alert("Por favor, insira o CEP!");
+          frm.cep.focus();
+          return false;
+        }
+
+        // Verificando o CPF no formulário.
+        if (frm.cpf.value == "" || frm.cpf.value == null) {
+          alert("Por favor, insira o seu CPF!");
+          frm.cpf.focus();
+          return false;
+        }
+
+        // Verificando o telefone no formulário.
+        if (frm.telefone.value == "" || frm.telefone.value == null) {
+          alert("Por favor, insira seu telefone!");
+          frm.telefone.focus();
+          return false;
+        }
+
+        // Verificando o celular no formulário.
+        if (frm.celular.value == "" || frm.celular.value == null) {
+          alert("Por favor, insira seu celular!");
+          frm.celular.focus();
+          return false;
+        }
+
+        // Verificando o email no formulário, sendo que o campo e-mail precisa de conter: "@", "." e não pode estar vazio.
+        if (frm.email.value.indexOf("@") == -1 || frm.email.valueOf.indexOf(".") == -1
+        || frm.email.value == "" || frm.email.value == null) {
+          alert("Por favor, indique um e-mail válido!");
+          frm.email.focus();
+          return false;
+        }
+
+        // Verificando o sexo no formulário.
+        if(frm.sexo.checked == false) {
+          alert("Por favor, selecione um sexo!");
+          frm.sexo.focus();
+          return false;
+        }
+
+        // Verificando a cidade no formulário.
+        if(frm.cidade.value == "") {
+          alert("Por favor, selecione uma cidade!");
+          frm.cidade.focus();
+          return false;
+        }
+
+        // Verificando o estado no formulário.
+        if(frm.estado.value == "") {
+          alert("Por favor, selecione um estado!");
+          frm.estado.focus();
+          return false;
+        }
+
+        // Verificando o usuário no formulário.
+        if (frm.usuario.value == "" || frm.usuario.value == null) {
+          alert("Por favor, insira seu nome de usuário!");
+          frm.usuario.focus();
+          return false;
+        }
+
+        // Verificando a senha no formulário.
+        if (frm.senha.value == "" || frm.senha.value == null) {
+          alert("Por favor, insira sua senha!");
+          frm.senha.focus();
+          return false;
+        }
+
+        return true;
+      }
+
+    </script>
+
+
+    </head>
+  <body>
+
+  <h1>Sistema de Cadastramento de Alunos<small> Cadastrar Usuário</small></h1>
+
+  <form name="Cadastro" method="post" action="confirmabs.html" onsubmit="return validaForm(this);">
+
+    <table>
+
+      <tr>
+        <td>Nome: <input type="text" name="nome" /> <br/><br/></td>
+        <td>Rua: <input type="text" name="rua"/><br/><br/></td>
+        <td>Número: <input type="text" name="numero" /><br><br></td>
+      </tr>
+
+      <tr>
+        <td>Complemento: <input type="text" name="complemento" placeholder="Opcional" /><br><br></td>
+        <td>CEP: <input type="number" name="cep" placeholder="Sem traços" /><br><br></td>
+        <td>CPF: <input type="number" name="cpf" placeholder="Sem traços ou pontos" /><br><br></td>
+      </tr>
+
+      <tr>
+        <td>Telefone: <input type="text" name="telefone" /><br><br></td>
+        <td>Celular: <input type="text" name="celular" /><br><br></td>
+        <td>E-mail: <input type="text" name="email" /><br><br></td>
+      </tr>
+
+      <!-- Gênero  -->
+      <tr>
+        <td>Sexo: <input type="radio" name="genero" value="M">Masculino<br><br></td>
+        <td><input type="radio" name="genero" value="F">Feminino<br><br></td>
+      </tr>
+
+      <!-- Áreas de Interesse  -->
+      <tr>
+        <td>Áreas de Interesse: <input type="checkbox" name="area[]" value="1" />Sistemas Web <br/><br/></td>
+        <td><input type="checkbox" name="area[]" value="2" />Banco de Dados <br/><br/></td>
+        <td><input type="checkbox" name="area[]" value="3" />Redes de Computadores <br/><br/></td>
+        <td><input type="checkbox" name="area[]" value="4" />Engenharia de Software <br/><br/></td>
+      </tr>
+
+      <!-- Lista de Cidades  -->
+      <td>
+          Cidade: <select name="cidade">
+              <option value="">Selecione uma cidade</option>
+              <option value="1">João Monlevade</option>
+              <option value="2">Belo Horizonte</option>
+              <option value="3">Vitória</option>
+              <option value="4">Guarapari</option>
+              <option value="5">Rio de Janeiro</option>
+              <option value="6">Niterói</option>
+              <option value="7">São Paulo</option>
+              <option value="8">Bragança Paulista</option>
+          </select><br><br>
+        </td>
+
+      <!-- Lista de Estados  -->
+      <td>
+          Estado: <select name="estado">
+            <option value="">Selecione um estado</option>
+            <option value="1">Espírito Santo</option>
+            <option value="2">Minas Gerais</option>
+            <option value="3">Rio de Janeiro</option>
+            <option value="4">São Paulo</option>
+          </select><br><br>
+        </td>
+
+      <tr>
+        <td>Usuário: <input type="text" name="usuario" placeholder="Insira o nome de usuário" /><br/><br/></td>
+      </tr>
+
+      <tr>
+        <td>Senha: <input type="password" name="senha" placeholder="Insira sua senha" /><br/><br/></td>
+        <td>Confirme sua Senha: <input type="password" name="senha" placeholder="Confirme sua senha" /><br/><br></td>
+      </tr>
+
+      <tr>
+        <td><input type="submit" class="btn btn-primary" value="Confirmar"><br/><br/></td>
+        <td><input type="reset" class="btn btn-danger" value="Limpar"><br/><br/></td>
+      </tr>
+
+    </table>
+  </form>
+
+  <form name="voltar" method="post" action="menubs.html">
+      Para voltar ao menu principal, clique em Voltar.<br>
+      <input type="submit" class="btn btn-warning" value="Voltar"/><br/><br/>
+  </form>
+
+  <div class="container text-center">
+      <div class="footer">
+          <hr>
+              <strong>Michel Wagner Ferreira - 13.1.8490</strong><br/>
+              Todos os direitos reservados &reg; <strong>Sistema de Cadastramento de Alunos</strong>
+          </hr>
+      </div>
+  </div>
+
+  </body>
+</html>
